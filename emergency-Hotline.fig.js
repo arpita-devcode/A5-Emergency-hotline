@@ -16,19 +16,26 @@ for (let i = 0; i < copies.length; i++) {
       parseInt(document.getElementById("copy_count").innerText) || 0;
     totalcopy += 1;
     document.getElementById("copy_count").innerText = totalcopy;
-     const number = this.closest("div.bg-white").querySelector("h3.text-2xl").innerText.trim();
+    const number = this.closest("div.bg-white")
+      .querySelector("h3.text-2xl")
+      .innerText.trim();
     const url = `${number}`;
     navigator.clipboard.writeText(url).then(() => {
       alert(`The number has copied: ${url}`);
     });
   });
 }
- 
+
 // Call button functionality
 const callButtons = document.querySelectorAll(".call-button");
 
 for (let i = 0; i < callButtons.length; i++) {
   callButtons[i].addEventListener("click", function () {
+    let totalcoin = parseInt(document.getElementById("coin_count").innerText);
+     if (totalcoin < 20) {  // check BEFORE calling
+      alert("Don't have enough coins to call");
+      return;
+    }
     let number = "";
     let name = " ";
     if (i === 0) {
@@ -76,14 +83,8 @@ for (let i = 0; i < callButtons.length; i++) {
       name = "Bangladesh Railway Helpline ";
       alert(`📞  ${name} calling ${number}...`);
     }
-    // Deduct 5 coins
-    let totalcoin =
-      parseInt(document.getElementById("coin_count").innerText) || 0;
     totalcoin -= 20;
-    if (totalcoin < 0){
-      alert("Don't have enough money to call")
-      return;
-    } // Prevent negative
+    // Prevent negative
     document.getElementById("coin_count").innerText = totalcoin;
     // history update
     const histoycontainer = document.getElementById("call-history"); // FIX: quotes added
