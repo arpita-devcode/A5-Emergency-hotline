@@ -8,14 +8,24 @@ for (let i = 0; i < hearts.length; i++) {
     document.getElementById("love_count").innerText = totalLove;
   });
 }
+const copies = document.getElementsByClassName("copy-button");
 
+for (let i = 0; i < copies.length; i++) {
+  copies[i].addEventListener("click", function () {
+    let totalcopy =
+      parseInt(document.getElementById("copy_count").innerText) || 0;
+    totalcopy += 1;
+    document.getElementById("copy_count").innerText = totalcopy;
+  });
+}
+ 
 // Call button functionality
 const callButtons = document.querySelectorAll(".call-button");
 
 for (let i = 0; i < callButtons.length; i++) {
   callButtons[i].addEventListener("click", function () {
     let number = "";
-    let name = "";
+    let name = " ";
     if (i === 0) {
       number = "999";
       name = "National Emergency Number";
@@ -46,10 +56,25 @@ for (let i = 0; i < callButtons.length; i++) {
       name = "Anti-Corruption Helpline";
       alert(`📞  ${name} calling ${number}...`);
     }
+    if (i === 6) {
+      number = "16216";
+      name = "Electricity Helpline";
+      alert(`📞  ${name} calling ${number}...`);
+    }
+    if (i === 7) {
+      number = "16445";
+      name = "Brac Helpline";
+      alert(`📞  ${name} calling ${number}...`);
+    }
+    if (i === 8) {
+      number = "163";
+      name = "Bangladesh Railway Helpline ";
+      alert(`📞  ${name} calling ${number}...`);
+    }
     // Deduct 5 coins
     let totalcoin =
       parseInt(document.getElementById("coin_count").innerText) || 0;
-    totalcoin -= 15;
+    totalcoin -= 20;
     if (totalcoin < 0){
       alert("Don't have enough money to call")
       return;
