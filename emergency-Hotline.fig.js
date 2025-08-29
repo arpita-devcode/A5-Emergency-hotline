@@ -16,6 +16,11 @@ for (let i = 0; i < copies.length; i++) {
       parseInt(document.getElementById("copy_count").innerText) || 0;
     totalcopy += 1;
     document.getElementById("copy_count").innerText = totalcopy;
+     const number = this.closest("div.bg-white").querySelector("h3.text-2xl").innerText.trim();
+    const url = `${number}`;
+    navigator.clipboard.writeText(url).then(() => {
+      alert(`The number has copied ${url}`);
+    });
   });
 }
  
