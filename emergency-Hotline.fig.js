@@ -19,7 +19,7 @@ for (let i = 0; i < copies.length; i++) {
      const number = this.closest("div.bg-white").querySelector("h3.text-2xl").innerText.trim();
     const url = `${number}`;
     navigator.clipboard.writeText(url).then(() => {
-      alert(`The number has copied ${url}`);
+      alert(`The number has copied: ${url}`);
     });
   });
 }
